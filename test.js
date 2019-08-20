@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(600, 600);
   background(51);
 }
 var ang =1;
@@ -14,7 +14,7 @@ function draw() {
   background(200);
   for(var l = 0;l<TWO_PI;l+=TWO_PI/del)
   {
-    line(Math.cos(l+mouseX)*R,Math.sin(l+mouseY)*R,Math.cos(l*kol)*R,Math.sin(l*kol)*R);
+    line(Math.cos(l+mouseX/width*2)*R,Math.sin(l+mouseY/height*2)*R,Math.cos(l*kol+mouseX/width*2)*R,Math.sin(l*kol+mouseY/height*2)*R);
   }
   
 }
