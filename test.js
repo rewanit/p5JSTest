@@ -12,6 +12,7 @@ function draw() {
   rotate(radians(ang+=0.1));
   clear();  
   background(200);
+  var tmp=0;
   for(var l = 0;l<TWO_PI;l+=TWO_PI/del)
   {
     line(Math.cos(l+mouseX/width*2)*R,Math.sin(l+mouseY/height*2)*R,Math.cos(l*kol+mouseX/width*2)*R,Math.sin(l*kol+mouseY/height*2)*R);
@@ -22,4 +23,13 @@ function draw() {
 function mouseClicked()
 {
   
+}
+
+function mouseWheel(event) {
+  kol += event.delta/10;
+  del += event.delta;
+  //move the square according to the vertical scroll amount
+  
+  //uncomment to block page scrolling
+  return false;
 }
