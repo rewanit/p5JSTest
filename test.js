@@ -16,7 +16,7 @@ function draw() {
   background(200);
   for(var l = 0;l<TWO_PI;l+=TWO_PI/del)
   {
-    line(Math.cos(l)*R,Math.sin(l)*R,Math.cos(l*kol)*R,Math.sin(l*kol)*R);
+    line(Math.cos(l*0.2)*R,Math.sin(l*0.2)*R,Math.cos(l*kol)*R,Math.sin(l*kol)*R);
   }
   
 }
