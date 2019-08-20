@@ -7,8 +7,8 @@ var ang =1;
 var kol = 2;
 var del=120;
 function draw() {
-  //kol+=0.01;
-  del+=0.02;
+  kol+=0.01;
+  del+=0.2;
   var R = width/2;
   translate(width / 2, height / 2);
   rotate(radians(ang+=0.1));
