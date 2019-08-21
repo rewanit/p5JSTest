@@ -1,48 +1,43 @@
 
 function setup() {
-  createCanvas(600, 600);
-  background(51);
+  createCanvas(windowWidth, windowHeight);
+  background(25);
+}
+var ang = 0;
+function draw() {
+  clear();
+  background(25);
+  ang+=1;
+  for (let i = 0; i < 360; i+=360/6) {
+    var rad = radians(i+ang+30);
+    drawHex(mouseX+Math.cos(rad)*(180*Math.sin(millis()/10000)),mouseY+Math.sin(rad)*(180*Math.sin(millis()/10000)),20,ang,Math.sin(millis()/1000)*128);
+    rad = radians(i+ang+15);
+    rad=-rad;
+    drawHex(mouseX+Math.cos(rad)*(260*Math.sin(millis()/1000)),mouseY+Math.sin(rad)*(260*Math.sin(millis()/1000)),20,ang,Math.sin(millis()/10000)*128);
+    
+  }
+  drawHex(mouseX,mouseY,20,ang,Math.sin(millis()/100)*200);
+  
+  
+}
+
+function drawHex(posX,posY,radius,angle=0,color=255)
+{
+  fill(color);
+  beginShape();
+  for (let i = 0; i < 360; i+=360/6) {
+    var rad = radians(i+angle);
+    vertex(posX+Math.cos(rad)*radius,posY+Math.sin(rad)*radius);    
+  }
+  return endShape(CLOSE);
+
+}
+
+function mouseClicked() {
+  
 }
 
 function windowResized() {
-}
+  resizeCanvas(windowWidth, windowHeight);
 
-var ang =1;
-var kol = 2;
-var del=240;
-var tmp=0;
-function draw() {
-tmp+=0.001
-  var R = width/2;
-  translate(width / 2, height / 2);
-  //rotate(radians(ang+=0.1));
-  clear();  
-  background(200);
-  for(var l = 0;l<TWO_PI;l+=TWO_PI/del)
-  {
-    
-    line(Math.cos(l+mouseX/width*2+tmp)*R,Math.sin(l+mouseY/height*2+tmp)*R,Math.cos(l*kol+mouseX/width*2+tmp)*R,Math.sin(l*kol+mouseY/height*2+tmp)*R);
-  }
-  var shag = TWO_PI/del;
-  for(var l = 0;l<TWO_PI-shag;l+=shag)
-  {
-    
-    line(Math.cos(l+mouseX/width*2+tmp)*R,Math.sin(l+mouseY/height*2+tmp)*R,Math.cos(l+shag+mouseX/width*2+tmp)*R,Math.sin(l+shag+mouseY/height*2+tmp)*R);
-  }
-
-  
-}
-
-function mouseClicked()
-{
-  
-}
-
-function mouseWheel(event) {
-  kol += (event.delta<0?-1:1);
-  del += (event.delta<0?-5:5);
-  //move the square according to the vertical scroll amount
-  
-  //uncomment to block page scrolling
-  return false;
 }
