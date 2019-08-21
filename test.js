@@ -1,10 +1,9 @@
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(600, 600);
   background(51);
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
 }
 
 var ang =1;
