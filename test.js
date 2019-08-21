@@ -8,7 +8,7 @@ function windowResized() {
 
 var ang =1;
 var kol = 2;
-var del=120;
+var del=240;
 var tmp=0;
 function draw() {
 tmp+=0.001
@@ -19,8 +19,16 @@ tmp+=0.001
   background(200);
   for(var l = 0;l<TWO_PI;l+=TWO_PI/del)
   {
+    
     line(Math.cos(l+mouseX/width*2+tmp)*R,Math.sin(l+mouseY/height*2+tmp)*R,Math.cos(l*kol+mouseX/width*2+tmp)*R,Math.sin(l*kol+mouseY/height*2+tmp)*R);
   }
+  var shag = TWO_PI/del;
+  for(var l = 0;l<TWO_PI-shag;l+=shag)
+  {
+    
+    line(Math.cos(l+mouseX/width*2+tmp)*R,Math.sin(l+mouseY/height*2+tmp)*R,Math.cos(l+shag+mouseX/width*2+tmp)*R,Math.sin(l+shag+mouseY/height*2+tmp)*R);
+  }
+
   
 }
 
@@ -30,8 +38,8 @@ function mouseClicked()
 }
 
 function mouseWheel(event) {
-  kol += event.delta/10;
-  del += event.delta;
+  kol += (event.delta<0?-1:1);
+  del += (event.delta<0?-5:5);
   //move the square according to the vertical scroll amount
   
   //uncomment to block page scrolling
