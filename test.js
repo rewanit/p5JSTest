@@ -20,7 +20,7 @@ tmp+=0.001
   for(var l = 0;l<TWO_PI;l+=TWO_PI/del)
   {
     line(Math.cos(l+mouseX/width*2+tmp)*R,Math.sin(l+mouseY/height*2+tmp)*R,Math.cos(l*kol+mouseX/width*2+tmp)*R,Math.sin(l*kol+mouseY/height*2+tmp)*R);
-    line(Math.sin(l+mouseX/width*2-tmp)*R,Math.cos(l+mouseY/height*2-tmp)*R,Math.sin(l*kol+mouseX/width*2-tmp)*R,Math.cos(l*kol+mouseY/height*2-tmp)*R);
+    line(Math.sin(l+mouseX/width*2+tmp)*R,Math.cos(l+mouseY/height*2+tmp)*R,Math.sin(l*kol+mouseX/width*2+tmp)*R*Math.random(),Math.cos(l*kol+mouseY/height*2-tmp)*R);
   }
   
 }
