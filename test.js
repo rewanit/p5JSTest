@@ -1,7 +1,12 @@
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
   background(51);
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 var ang =1;
 var kol = 2;
 var del=120;
