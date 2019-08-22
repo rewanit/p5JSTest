@@ -4,8 +4,6 @@ function setup() {
   background(25);
 
 }
-var tmp=0;
-var ang = 0;
 var radius = 50;
 function draw() {
   clear();
