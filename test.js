@@ -1,24 +1,16 @@
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(25);
-
 }
 var radius = 50;
 function draw() {
   clear();
   background(25);
-  
   var smesh = false;
-  var tmp_rad=0;
- 
   for (let posY = 0; posY <= height+100; posY += radius * 2 * 3 / 4) {
     smesh = !smesh;
-    tmp+=0.0001;
     var mils = millis()/1000;
     for (let posX = 0; posX <= width+100; posX += sqrt(3) * radius  ) {
-      ang += 0.001;
-      
       drawHex(
         posX+(smesh?-sqrt(3) * radius/2:0),
         posY,
