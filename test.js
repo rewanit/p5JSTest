@@ -12,22 +12,21 @@ function draw() {
   background(25);
   
   var smesh = false;
-  var tmp_rad=radius;
+  var tmp_rad=0;
  
   for (let posY = 0; posY <= height+100; posY += radius * 2 * 3 / 4) {
     smesh = !smesh;
     tmp+=0.0001;
-    tmp_rad = millis()/10000;
-    var mils = millis();
+    var mils = millis()/1000;
     for (let posX = 0; posX <= width+100; posX += sqrt(3) * radius  ) {
       ang += 0.001;
       
       drawHex(
         posX+(smesh?-sqrt(3) * radius/2:0),
         posY,
-        radius/2-(Math.cos(posY/2000+posX/1000-tmp_rad)*radius/2),
+        radius/2-(Math.cos(posY/2000+posX/1000-mils)*radius/2),
         30,
-        128+(Math.cos(mils/1000)+0.2)*10);
+        50+Math.sin(posY/2000+posX/1000-mils)*128);
     }
   }
   //drawHex(mouseX,mouseY,20,ang,Math.sin(-millis()/1000)*200);
