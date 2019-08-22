@@ -25,7 +25,7 @@ function draw() {
       drawHex(
         posX+(smesh?-sqrt(3) * radius/2:0),
         posY,
-        radius/2-(Math.cos(posX+tmp_rad)*radius/2),
+        radius/2-(Math.cos(posY/2000+posX/1000-tmp_rad)*radius/2),
         30,
         128+(Math.cos(mils/1000)+0.2)*10);
     }
