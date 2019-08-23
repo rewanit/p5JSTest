@@ -14,17 +14,12 @@ function setup() {
   sensetive = 1;
   bg = loadImage("bg.jpg");
   y = height / 2;
-
-
-
-
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('bg');
 }
 var x = 0;
 var y;
 function draw() {
-
 
 
   background(bg);
@@ -52,9 +47,9 @@ function draw() {
         x: posX + (smesh ? -sqrt(3) * radius / 2 : 0),
         y: posY,
         color: (40 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120),
-        transparent: (map(Math.sin(posY / 2000 + posX / 1000 - mils),-1,1,160,40,true))
+        transparent: (map(Math.sin(posY / 2000 + posX / 1000 - mils), -1, 1, 160, 40, true))
       }
-  
+
       drawHex(
         Hex.x,
         Hex.y,
