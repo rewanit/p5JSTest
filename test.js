@@ -11,7 +11,7 @@ function setup() {
   maxRadius = radius+2;
   minRadius = radius/1.5;
   sensetive = 1;
-  bg = loadImage("https://cdnb.artstation.com/p/assets/images/images/005/829/383/large/devin-hansen-parvus-galaxy-normal.jpg?1494052333");
+  bg = loadImage("bg.jpg");
 
 
 
@@ -56,7 +56,8 @@ function draw() {
         //radius/2-Math.cos(posY/2000+posX/1000-mils )*radius/2,
         map(dist(mouseX, mouseY, drawPos.x, drawPos.y)/(radius/Hexagons), 0, biggest/radius* (biggest/smaller)*sensetive, minRadius, maxRadius, true),
         30,
-        drawPos.color);
+        drawPos.color,
+        200);
     }
   }
   //drawHex(mouseX,mouseY,20,ang,Math.sin(-millis()/1000)*200);
@@ -64,8 +65,8 @@ function draw() {
 
 }
 
-function drawHex(posX, posY, radius, angle = 0, color = 255) {
-  fill(color,color,color,200);
+function drawHex(posX, posY, radius, angle = 0, color = 255,transparent=255) {
+  fill(color,color,color,transparent);
   noStroke();
   beginShape();
   for (let i = 0; i < 360; i += 360 / 6) {
