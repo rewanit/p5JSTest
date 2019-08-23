@@ -1,5 +1,6 @@
 
 var radius = 50;
+
 var biggest,smaller;
 var Hexagons = 40;
 var sensetive,maxRadius,minRadius;
@@ -12,18 +13,20 @@ function setup() {
   minRadius = radius/1.5;
   sensetive = 1;
   bg = loadImage("bg.jpg");
+  y=height/2;
 
 
 
 
-
-
-  createCanvas(windowWidth, windowHeight);
+  var canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent('bg');
 }
-var radius = 50;
+var x = 0;
+var y;
 function draw() {
 
 
+  
   background(bg);
   var smesh = false;
 
@@ -40,6 +43,7 @@ function draw() {
     var dist = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
     return (dist);
   };
+
 
   var mils = millis() / 2000;
   for (let posY = 0; posY <= height + 100; posY += radius * 2 * 3 / 4) {

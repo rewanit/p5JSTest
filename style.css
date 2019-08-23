@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     height: 100%;
     padding: 0;
+    display:block;
   }
   
   
@@ -15,13 +16,14 @@ html, body {
     /* This centers our sketch vertically. */
     align-items: center;
   }
+  .bg {
+    display:block;
+  } 
+  .bg:focus
+  {
+   outline:0;
+  }
+  canvas{
+    display: block;
+  }
   
-  canvas {display:block;
-    background-image: url();
-
-    z-index: +100;
-      }    remove scrollbars
-      canvas:focus {outline:0;
-        
-      
-    }
