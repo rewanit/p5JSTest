@@ -8,9 +8,9 @@ function setup() {
   biggest = (windowWidth<=windowHeight?windowHeight:windowWidth);
   smaller = (windowWidth>=windowHeight?windowHeight:windowWidth);
   radius = biggest/Hexagons;  
-  maxRadius = radius-0.5;
+  maxRadius = radius+2;
   minRadius = radius/1.5;
-  sensetive = 2;
+  sensetive = 1;
   bg = loadImage("https://cdnb.artstation.com/p/assets/images/images/005/829/383/large/devin-hansen-parvus-galaxy-normal.jpg?1494052333");
 
 
@@ -48,7 +48,7 @@ function draw() {
       drawPos = {
         x: posX + (smesh ? -sqrt(3) * radius / 2 : 0),
         y: posY,
-        color:(80 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120)
+        color:(40 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120)
       }
       drawHex(
         drawPos.x,
