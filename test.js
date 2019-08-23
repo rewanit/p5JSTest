@@ -8,7 +8,7 @@ function setup() {
   biggest = (windowWidth<=windowHeight?windowHeight:windowWidth);
   smaller = (windowWidth>=windowHeight?windowHeight:windowWidth);
   radius = biggest/Hexagons;  
-  maxRadius = radius+2;
+  maxRadius = radius+0.5;
   minRadius = radius/1.5;
   sensetive = 1;
   bg = loadImage("bg.jpg");
