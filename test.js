@@ -1,19 +1,19 @@
 
 var radius = 50;
 
-var biggest,smaller;
+var biggest, smaller;
 var Hexagons = 40;
-var sensetive,maxRadius,minRadius;
+var sensetive, maxRadius, minRadius;
 var bg;
 function setup() {
-  biggest = (windowWidth<=windowHeight?windowHeight:windowWidth);
-  smaller = (windowWidth>=windowHeight?windowHeight:windowWidth);
-  radius = biggest/Hexagons;  
-  maxRadius = radius+0.5;
-  minRadius = radius/1.5;
+  biggest = (windowWidth <= windowHeight ? windowHeight : windowWidth);
+  smaller = (windowWidth >= windowHeight ? windowHeight : windowWidth);
+  radius = biggest / Hexagons;
+  maxRadius = radius + 0.5;
+  minRadius = radius / 1.5;
   sensetive = 1;
   bg = loadImage("bg.jpg");
-  y=height/2;
+  y = height / 2;
 
 
 
@@ -26,7 +26,7 @@ var y;
 function draw() {
 
 
-  
+
   background(bg);
   var smesh = false;
 
@@ -49,19 +49,20 @@ function draw() {
   for (let posY = 0; posY <= height + 100; posY += radius * 2 * 3 / 4) {
     smesh = !smesh;
     for (let posX = 0; posX <= width + 100; posX += sqrt(3) * radius) {
-      drawPos = {
+      var Hex = {
         x: posX + (smesh ? -sqrt(3) * radius / 2 : 0),
         y: posY,
-        color:(40 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120)
+        color: (40 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120),
+        transparent: (100 - Math.sin(posY / 2000 + posX / 1000 - mils) * 50)
       }
       drawHex(
-        drawPos.x,
-        drawPos.y,
+        Hex.x,
+        Hex.y,
         //radius/2-Math.cos(posY/2000+posX/1000-mils )*radius/2,
-        map(dist(mouseX, mouseY, drawPos.x, drawPos.y)/(radius/Hexagons), 0, biggest/radius* (biggest/smaller)*sensetive, minRadius, maxRadius, true),
+        map(dist(mouseX, mouseY, Hex.x, Hex.y) / (radius / Hexagons), radius, biggest / radius * (biggest / smaller) * sensetive, minRadius, maxRadius, true),
         30,
-        drawPos.color,
-        200);
+        Hex.color,
+        Hex.transparent);
     }
   }
   //drawHex(mouseX,mouseY,20,ang,Math.sin(-millis()/1000)*200);
@@ -69,8 +70,8 @@ function draw() {
 
 }
 
-function drawHex(posX, posY, radius, angle = 0, color = 255,transparent=255) {
-  fill(color,color,color,transparent);
+function drawHex(posX, posY, radius, angle = 0, color = 255, transparent = 255) {
+  fill(color, color, color, transparent);
   noStroke();
   beginShape();
   for (let i = 0; i < 360; i += 360 / 6) {
