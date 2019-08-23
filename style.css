@@ -17,7 +17,11 @@ html, body {
   }
   
   canvas {display:block;
+    background-image: url();
+
+    z-index: +100;
       }    remove scrollbars
       canvas:focus {outline:0;
+        
       
     }

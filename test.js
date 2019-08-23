@@ -3,6 +3,7 @@ var radius = 50;
 var biggest,smaller;
 var Hexagons = 40;
 var sensetive,maxRadius,minRadius;
+var bg;
 function setup() {
   biggest = (windowWidth<=windowHeight?windowHeight:windowWidth);
   smaller = (windowWidth>=windowHeight?windowHeight:windowWidth);
@@ -10,7 +11,7 @@ function setup() {
   maxRadius = radius-0.5;
   minRadius = radius/2;
   sensetive = 1;
-
+  bg = loadImage("https://cdnb.artstation.com/p/assets/images/images/001/430/055/large/daniel-schmelling-skybox-wallpaper-3.jpg");
 
 
 
@@ -23,7 +24,7 @@ var radius = 50;
 function draw() {
 
 
-  background("#1924B1");
+  background(bg);
   var smesh = false;
 
   function dist(x1, y1, x2, y2) {
