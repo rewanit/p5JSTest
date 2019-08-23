@@ -17,7 +17,7 @@ html, body {
   }
   
   canvas {display:block;
-    cursor: none}    /* remove scrollbars */
+      }    remove scrollbars
       canvas:focus {outline:0;
       
     }

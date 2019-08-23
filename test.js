@@ -1,22 +1,60 @@
 
+var radius = 50;
+var biggest,smaller;
+var Hexagons = 40;
+var sensetive,maxRadius,minRadius;
 function setup() {
+  biggest = (windowWidth<=windowHeight?windowHeight:windowWidth);
+  smaller = (windowWidth>=windowHeight?windowHeight:windowWidth);
+  radius = biggest/Hexagons;  
+  maxRadius = radius-0.5;
+  minRadius = radius/2;
+  sensetive = 1;
+
+
+
+
+
+
+
   createCanvas(windowWidth, windowHeight);
 }
 var radius = 50;
 function draw() {
-  clear();
-  background(25);
+
+
+  background(111, 32, 135);
   var smesh = false;
-  for (let posY = 0; posY <= height+100; posY += radius * 2 * 3 / 4) {
+
+  function dist(x1, y1, x2, y2) {
+    function diff(num1, num2) {
+      if (num1 > num2) {
+        return (num1 - num2);
+      } else {
+        return (num2 - num1);
+      }
+    };
+    var deltaX = diff(x1, x2);
+    var deltaY = diff(y1, y2);
+    var dist = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+    return (dist);
+  };
+
+  var mils = millis() / 2000;
+  for (let posY = 0; posY <= height + 100; posY += radius * 2 * 3 / 4) {
     smesh = !smesh;
-    var mils = millis()/1000;
-    for (let posX = 0; posX <= width+100; posX += sqrt(3) * radius  ) {
+    for (let posX = 0; posX <= width + 100; posX += sqrt(3) * radius) {
+      drawPos = {
+        x: posX + (smesh ? -sqrt(3) * radius / 2 : 0),
+        y: posY
+      }
       drawHex(
-        posX+(smesh?-sqrt(3) * radius/2:0),
-        posY,
-        radius/2-(Math.cos(posY/2000+posX/1000-mils)*radius/2),
+        drawPos.x,
+        drawPos.y,
+        //radius/2-Math.cos(posY/2000+posX/1000-mils )*radius/2,
+        map(dist(mouseX, mouseY, drawPos.x, drawPos.y)/(radius/Hexagons), 0, biggest/radius* (biggest/smaller)*sensetive, minRadius, maxRadius, true),
         30,
-        50+Math.sin(posY/2000+posX/1000-mils)*128);
+        80 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120);
     }
   }
   //drawHex(mouseX,mouseY,20,ang,Math.sin(-millis()/1000)*200);
@@ -37,6 +75,7 @@ function drawHex(posX, posY, radius, angle = 0, color = 255) {
 }
 
 function mouseClicked() {
+  trigger = true;
 
 }
 
