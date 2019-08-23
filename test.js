@@ -43,8 +43,7 @@ function draw() {
     var dist = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
     return (dist);
   };
-
-
+  var r;
   var mils = millis() / 2000;
   for (let posY = 0; posY <= height + 100; posY += radius * 2 * 3 / 4) {
     smesh = !smesh;
@@ -53,8 +52,9 @@ function draw() {
         x: posX + (smesh ? -sqrt(3) * radius / 2 : 0),
         y: posY,
         color: (40 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120),
-        transparent: (100 - Math.sin(posY / 2000 + posX / 1000 - mils) * 50)
+        transparent: (map(Math.sin(posY / 2000 + posX / 1000 - mils),-1,1,160,40,true))
       }
+  
       drawHex(
         Hex.x,
         Hex.y,
