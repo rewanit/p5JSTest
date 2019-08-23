@@ -23,7 +23,7 @@ var radius = 50;
 function draw() {
 
 
-  background(111, 32, 135);
+  background("#1924B1");
   var smesh = false;
 
   function dist(x1, y1, x2, y2) {
