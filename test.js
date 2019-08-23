@@ -54,7 +54,7 @@ function draw() {
         //radius/2-Math.cos(posY/2000+posX/1000-mils )*radius/2,
         map(dist(mouseX, mouseY, drawPos.x, drawPos.y)/(radius/Hexagons), 0, biggest/radius* (biggest/smaller)*sensetive, minRadius, maxRadius, true),
         30,
-        80 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120);
+        (mouseIsPressed?1:-1)*map(dist(mouseX, mouseY, drawPos.x, drawPos.y)/(radius/Hexagons), 0, biggest/radius* (biggest/smaller)*sensetive, minRadius, maxRadius, true)*(80 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120));
     }
   }
   //drawHex(mouseX,mouseY,20,ang,Math.sin(-millis()/1000)*200);
