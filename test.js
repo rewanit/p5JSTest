@@ -8,10 +8,10 @@ function setup() {
   biggest = (windowWidth<=windowHeight?windowHeight:windowWidth);
   smaller = (windowWidth>=windowHeight?windowHeight:windowWidth);
   radius = biggest/Hexagons;  
-  maxRadius = radius-0.5;
+  maxRadius = radius-2;
   minRadius = radius/3;
   sensetive = 3;
-  bg = loadImage("https://cdnb.artstation.com/p/assets/images/images/001/430/055/large/daniel-schmelling-skybox-wallpaper-3.jpg");
+  bg = loadImage("https://cdnb.artstation.com/p/assets/images/images/005/829/313/large/devin-hansen-astrum-nebula-normal.jpg?1494052061");
 
 
 
