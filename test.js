@@ -20,13 +20,13 @@ function setup() {
 }
 var mode = false;
 function mousePressed() {
-  mode=!mode;
+  mode = !mode;
 }
 function draw() {
   if (mode) {
-    mouseX=0;
-    mouseY=0;
-    
+    mouseX = 0;
+    mouseY = 0;
+
   }
 
 
@@ -68,18 +68,17 @@ function draw() {
     }
   }
 
-  
+
 
   HexArray.forEach(innerArray => {
     innerArray.forEach(
       Hex => {
         //Use transforms
-        Hex.radius = map(dist(mouseX, mouseY, Hex.x, Hex.y)/(radius*sensetive), 0, 1, Hex.minRadius, Hex.maxRadius, true);
-        if(mode)
-        {
-          Hex.maxRadius=Hex.maxRadius;
-          Hex.minRadius=0;
-          Hex.radius = map(abs(sin(dist(mouseX, mouseY, Hex.x, Hex.y)/(radius*sensetive)-mils)), 0, 1, Hex.minRadius, Hex.maxRadius, true);
+        Hex.radius = map(dist(mouseX, mouseY, Hex.x, Hex.y) / (radius * sensetive), 0, 1, Hex.minRadius, Hex.maxRadius, true);
+        if (mode) {
+          Hex.maxRadius = Hex.maxRadius;
+          Hex.minRadius = 0;
+          Hex.radius = map(abs(sin(dist(mouseX, mouseY, Hex.x, Hex.y) / (radius * sensetive) - mils)), 0, 1, Hex.minRadius, Hex.maxRadius, true);
           
         }
         //DRAW!
@@ -90,14 +89,9 @@ function draw() {
           Hex.angle,
           Hex.color,
           Hex.transparent);
-        //text(Hex.radius, Hex.x, Hex.y);
       }
     );
-
   });
-  //drawHex(mouseX,mouseY,20,ang,Math.sin(-millis()/1000)*200);
-
-
 }
 
 function drawHex(posX, posY, radius, angle = 0, color = 255, transparent = 255) {
@@ -109,15 +103,12 @@ function drawHex(posX, posY, radius, angle = 0, color = 255, transparent = 255) 
     vertex(posX + Math.cos(rad) * radius, posY + Math.sin(rad) * radius);
   }
   return endShape(CLOSE);
-
 }
 
 function mouseClicked() {
   trigger = true;
-
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-
 }
