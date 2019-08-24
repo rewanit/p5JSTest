@@ -39,22 +39,24 @@ function draw() {
     return (dist);
   };
   var r;
-  var mils = millis() / 2000;
+  var mils = millis() / 3000;
   for (let posY = 0; posY <= height + 100; posY += radius * 2 * 3 / 4) {
     smesh = !smesh;
     for (let posX = 0; posX <= width + 100; posX += sqrt(3) * radius) {
       var Hex = {
         x: posX + (smesh ? -sqrt(3) * radius / 2 : 0),
         y: posY,
-        color: (40 + Math.sin(posY / 2000 + posX / 1000 - mils) * 120),
-        transparent: (map(Math.sin(posY / 2000 + posX / 1000 - mils), -1, 1, 160, 40, true))
+        color: (map(Math.sin(posY / 2000 + posX / 1000 - mils), -1, 1, -255, 255, true)),
+        transparent: (map(Math.sin(posY / 2000 + posX / 1000 - mils), -1, 1, 170, 225, true)),
+        maxRad:maxRadius-(map(Math.sin(posY / 2000 + posX / 1000 - mils), -1, 1, -1, 1,true)),
+        minRad:minRadius
       }
 
       drawHex(
         Hex.x,
         Hex.y,
         //radius/2-Math.cos(posY/2000+posX/1000-mils )*radius/2,
-        map(dist(mouseX, mouseY, Hex.x, Hex.y) / (radius / Hexagons), radius, biggest / radius * (biggest / smaller) * sensetive, minRadius, maxRadius, true),
+        map(dist(mouseX, mouseY, Hex.x, Hex.y) / (radius / Hexagons), radius, biggest / radius * (biggest / smaller) * sensetive, Hex.minRad, Hex.maxRad, true),
         30,
         Hex.color,
         Hex.transparent);
